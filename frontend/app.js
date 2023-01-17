@@ -146,7 +146,7 @@ function showGenerateMenu() {
   generateMenuOpen = true;
   generateMenu.style.display = "block";
   openGenerateBtn.style.display = "none";
-  controls.style.display = "grid";
+  controls.style.display = "none";
 }
 
 function main() {

@@ -70,7 +70,7 @@ impl Game {
 
         match game_state {
             GameStates::Eaten => {
-                self.food.reset(self.grid.clone(), self.width, self.height);
+                self.food.reset(self.grid.clone(), self.width);
             }
             GameStates::Ok => (),
             state => return state,
@@ -130,7 +130,7 @@ impl Snake {
     }
 
     pub fn change_direction(&mut self, new_direction: Direction) {
-        let valid = match (&self.direction, &new_direction) {
+        let valid = match (&self.prev_direction, &new_direction) {
             (Direction::Left, Direction::Right) => false,
             (Direction::Right, Direction::Left) => false,
             (Direction::Up, Direction::Down) => false,
@@ -148,7 +148,7 @@ impl Snake {
     }
 
     fn update(&mut self, width: i32, height: i32, food_pos: &Pos) -> GameStates {
-        // self.prev_direction = self.direction;
+        self.prev_direction = self.direction;
 
         let mut status = GameStates::Ok;
         let prev_pos = &self.body[0];
@@ -207,7 +207,7 @@ impl Food {
         }
     }
 
-    fn reset(&mut self, blocks: Vec<Block>, width: i32, height: i32) {
+    fn reset(&mut self, blocks: Vec<Block>, width: i32) {
         let empty_indexes: Vec<(usize, Block)> = blocks
             .into_iter()
             .enumerate()
