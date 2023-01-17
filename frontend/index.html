@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="generate">
+      <h2>Snake</h2>
+      <div>
+        <p>Width:</p>
+        <input type="number" id="game-width-input" />
+      </div>
+      <div>
+        <p>Height:</p>
+        <input type="number" id="game-height-input" />
+      </div>
+      <button id="game-init-btn">Create</button>
+    </div>
+    <button id="openGenerateBtn">New</button>
+    <canvas width="0" height="0" id="game-canvas"></canvas>
+    <div class="btnContainer" id="controls">
+      <button id="up-btn">
+        <span class="material-icons-outlined"> expand_less </span>
+      </button>
+      <button id="left-btn">
+        <span class="material-icons-outlined"> chevron_left </span>
+      </button>
+      <button id="right-btn">
+        <span class="material-icons-outlined"> chevron_right </span>
+      </button>
+      <button id="down-btn">
+        <span class="material-icons-outlined"> expand_more </span>
+      </button>
+    </div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
